@@ -4,9 +4,9 @@ class omeka::config {
   $rootdir  = $omeka::rootdir
   $debug    = $omeka::debug
 
-  class { 'omeka::config::php'    : } ->
-  class { 'omeka::config::mysql'  : } ->
-  class { 'omeka::config::apache2': } ->
+  class { 'omeka::config::php'   : } ->
+  class { 'omeka::config::mysql' : } ->
+  class { 'omeka::config::nginx' : } ->
   Class['omeka::config']
 
   file { 'db.ini':

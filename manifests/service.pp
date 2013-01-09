@@ -1,13 +1,19 @@
 
 class omeka::service {
 
-  service { 'apache2':
+  service { 'nginx' :
     ensure  => running,
     enable  => true,
     require => Class['omeka::install'],
   }
 
-  service { 'mysql':
+  service { 'php5-fpm' :
+    ensure  => running,
+    enable  => true,
+    require => Class['omeka::install'],
+  }
+
+  service { 'mysql' :
     ensure  => running,
     enable  => true,
     require => Class['omeka::install'],

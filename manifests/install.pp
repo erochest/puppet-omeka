@@ -1,7 +1,7 @@
 
 class omeka::install {
 
-  package { 'apache2':
+  package { 'nginx':
     ensure => installed,
   }
 
@@ -9,7 +9,7 @@ class omeka::install {
     ensure => installed,
   }
 
-  package { 'php5':
+  package { 'php5-fpm':
     ensure => installed,
   }
 
