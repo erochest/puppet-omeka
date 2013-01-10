@@ -22,7 +22,7 @@ server {
   location @rewrites {
     rewrite ^/admin/ /admin/index.php last;
     rewrite ^/install/ /install/index.php last;
-    rewrite .* index.php last;
+    rewrite .* /index.php last;
   }
 
   location ~ \.ini {
