@@ -17,9 +17,14 @@ class omeka::config {
     notify  => Class['omeka::service'],
   }
 
-  file { 'config.ini':
+  file { 'config/config.ini':
     path    => "$rootdir/Omeka/application/config/config.ini",
     content => template('omeka/config.erb'),
+  }
+
+  file { 'tests/config.ini':
+    path    => "$rootdir/Omeka/application/tests/config.ini",
+    content => template('omeka/test-config.erb'),
   }
 
   file { '.htaccess' :
