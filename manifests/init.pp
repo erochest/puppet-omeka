@@ -37,7 +37,7 @@
 #
 class omeka(
   $hostname = 'localhost',
-  $branch   = 'stable-1.5',
+  $branch   = 'stable-2.0',
   $rootdir  = '/usr/local/projects',
   $dbuser   = 'omeka',
   $dbpass   = 'omeka',

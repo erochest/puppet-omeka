@@ -1,15 +1,19 @@
 [testing]
 ; connectivity for testing on a live database (DO NOT USE PRODUCTION DATABASES, THIS WILL WIPE YOUR DATABASE EVERY TIME)
-db.host = "localhost"
+db.host = ""
 db.username = "<%= @dbuser %>"
 db.password = "<%= @dbpass %>"
 db.dbname = "test_<%= @dbname %>"
 
-email.to = ""
-email.administrator = ""
-
 paths.imagemagick = ""
-paths.maildir = ""
+
+; A temp directory for the tests to write to. If not set, the tests will use
+; _files/temp under this directory.
+;
+; Warning: the tests wipe this directory on each run, so don't specify a directory
+; that contains anything.
+;
+;paths.tempDir = ""
 
 ; The [site] section below will be merged with the main config.ini such that it
 ; overrides settings in that file.  These config settings do not need to change
@@ -22,5 +26,7 @@ debug.request = 0
 ; considerably.
 log.sql = 0
 log.errors = 0
-log.processes = 0
 
+jobs.dispatcher.default = "Omeka_Job_Dispatcher_Adapter_Synchronous"
+
+locale = ""

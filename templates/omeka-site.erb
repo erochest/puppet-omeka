@@ -7,22 +7,13 @@ server {
   # rewrite_log on;
 
   location / {
-    try_files $uri $uri/ @rewrites;
-    ## For omeka/master.
-    # try_files $uri @rewrites;
+    try_files $uri @rewrites;
   }
 
-  ## These work for omeka/master (as for 8 Jan 2013).
-  # location @rewrites {
-  #   rewrite ^/install/.*$ /install/install.php last;
-  #   rewrite ^/admin/.*$ /admin/index.php last;
-  #   rewrite ^ /index.php last;
-  # }
-
   location @rewrites {
-    rewrite ^/admin/ /admin/index.php last;
-    rewrite ^/install/ /install/index.php last;
-    rewrite .* /index.php last;
+    rewrite ^/install/.*$ /install/install.php last;
+    rewrite ^/admin/.*$ /admin/index.php last;
+    rewrite ^ /index.php last;
   }
 
   location ~ \.ini {
