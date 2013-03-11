@@ -5,7 +5,7 @@ class omeka::config::nginx {
 
   file { 'omeka-site':
     path    => '/etc/nginx/sites-available/omeka-site',
-    content => template('omeka/omeka-site.erb'),
+    content => template('omeka/omeka-site-nginx.erb'),
   }
 
   exec { 'omeka-site':

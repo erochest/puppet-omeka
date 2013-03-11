@@ -43,6 +43,7 @@ class omeka(
   $dbpass   = 'omeka',
   $dbname   = 'omeka',
   $dbprefix = 'omeka_',
+  $server   = 'apache2',
   $debug    = false
 ) {
 

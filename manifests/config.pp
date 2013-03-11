@@ -3,10 +3,11 @@ class omeka::config {
   $hostname = $omeka::hostname
   $rootdir  = $omeka::rootdir
   $debug    = $omeka::debug
+  $server   = $omeka::server
 
-  class { 'omeka::config::php'   : } ->
-  class { 'omeka::config::mysql' : } ->
-  class { 'omeka::config::nginx' : } ->
+  class { 'omeka::config::php'     : } ->
+  class { 'omeka::config::mysql'   : } ->
+  class { "omeka::config::$server" : } ->
   Class['omeka::config']
 
   file { 'db.ini':

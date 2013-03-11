@@ -5,7 +5,7 @@ class omeka::config::apache2 {
 
   file { 'omeka-site' :
     path    => '/etc/apache2/sites-available/omeka',
-    content => template('omeka/omeka-site.erb'),
+    content => template('omeka/omeka-site-apache2.erb'),
   }
 
   exec { 'a2dissite default' :
