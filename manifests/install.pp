@@ -35,9 +35,5 @@ class omeka::install {
     ensure => installed,
   }
 
-  package { 'git':
-    ensure => installed,
-  }
-
 }
 

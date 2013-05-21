@@ -11,7 +11,7 @@ class omeka::code {
     cwd     => $rootdir,
     command => "git clone --branch $branch git://github.com/omeka/Omeka.git",
     path    => ['/bin', '/usr/bin/'],
-    require => [Class["omeka::install"], File[$rootdir]],
+    require => [Class["omeka::install"], File[$rootdir], Package['git']],
     creates => "$rootdir/Omeka",
   }
 
@@ -19,7 +19,7 @@ class omeka::code {
     cwd     => "$rootdir/Omeka",
     command => "git submodule init && git submodule update",
     path    => ['/bin', '/usr/bin'],
-    require => [Exec['omeka-git']],
+    require => [Exec['omeka-git'], Package['git']],
   }
 
 }

@@ -6,7 +6,7 @@ define omeka::gitplugin($url, $branch='master') {
     cwd     => "$rootdir/Omeka/plugins",
     command => "git clone --branch $branch $url $name",
     path    => ['/usr/bin'],
-    require => Class['Omeka'],
+    require => [Class['Omeka'], Package['git']],
     creates => "$rootdir/Omeka/plugins/$name",
   }
 
